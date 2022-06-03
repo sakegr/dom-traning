@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            /* height: 100vh; */
+        }
+        .cont{
+            width: 400px;
+            height: 100px;
+            border: 5px solid purple;
+            border-radius: 5px;
+            margin: auto;
+            margin-top: 100px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .minus, .plus{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: blue;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            width: 30px;
+            cursor: pointer;
+        }
+        .minus:active, .plus:active{
+            background-color: bisque;
+            transform: scale(1.05);
+        }
+        span{
+            font-weight: 900;
+        } 
+
+        .genel{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .alt{
+            margin: 30px;
+        }
+        .aratop{
+            margin: 30px;
+            border-bottom: 5px solid black;
+        }
+        .toplam{
+            margin: 30px;
+            border-bottom: 5px solid black;
+        }
+    </style>
+</head>
+<body>
+<div class="genel">
+
+    <div class="cont">
+        <div class="minus">
+            <span>-</span> 
+        </div>
+        <span id="orta">0</span>
+        <div class="plus">
+            <span>+</span>
+        </div>
+    </div>
+    
+    <div class="alt">
+        <div class="aratop">Price : 10</div>
+        <div class="aratop">Shipping : 15$</div>
+        <div class="toplam">Total : <span id="span">0</span> </div>
+    </div>
+</div>
+
+<script>
+    const minus = document.querySelector('.minus');
+    const plus = document.querySelector('.plus');
+    const orta = document.querySelector('#orta');
+    const toplam = document.querySelector('#span');
+    let number = 0;
+
+    
+        minus.addEventListener('click', ()=>{
+            number -= 1;
+            if(number < 0){
+                number = 0;
+            }
+            orta.textContent = number;
+            toplam.textContent = (number * 10) + 15;
+        })
+
+        plus.addEventListener('click', () =>{
+            number +=1;
+            if(number > 10){
+                number = 10;
+            }
+            orta.innerHTML = number;
+            toplam.textContent = (number * 10) + 15;
+        })
+
+</script>
